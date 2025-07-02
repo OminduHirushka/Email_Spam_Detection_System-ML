@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Spam Detection System</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Email Spam Detection System</h1>
+
+      <form action="/" method="POST">
+        <label for="email">Enter Email Content:</label>
+        <textarea
+          id="email"
+          name="email"
+          rows="4"
+          cols="50"
+          placeholder="Paste your email content here..."
+        ></textarea>
+
+        <input type="submit" value="Check Spam" />
+      </form>
+
+      {% if prediction is not none %}
+      <h2 class="{% if prediction == 1 %}spam{% else %}not-spam{% endif %}">
+        {% if prediction == 1 %} 
+        ⚠️ Yes, this is SPAM
+        {% else %}
+        ✓ No, this isn't SPAM
+        {% endif %}
+      </h2>
+      {% endif %}
+    </div>
+  </body>
+</html>
