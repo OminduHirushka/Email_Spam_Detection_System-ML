@@ -44,14 +44,6 @@ h1::after {
   background: linear-gradient(to right, #3498db, #2ecc71);
 }
 
-h2 {
-  color: #2c3e50;
-  text-align: center;
-  margin-top: 30px;
-  padding: 15px;
-  border-radius: 5px;
-}
-
 /* Form Styles */
 form {
   width: 100%;
@@ -105,7 +97,113 @@ input[type="submit"]:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Tab Styles */
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-button {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #7f8c8d;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-button:hover {
+  color: #3498db;
+}
+
+.tab-button.active {
+  color: #2c3e50;
+  border-bottom-color: #3498db;
+}
+
+.tab-content {
+  display: none;
+  width: 100%;
+  animation: fadeIn 0.5s;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* File Upload Styles */
+.file-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.file-upload-label:hover,
+.file-upload-label.dragover {
+  border-color: #3498db;
+  background-color: #f8fafc;
+}
+
+.file-upload-label i {
+  font-size: 48px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.file-upload-label span {
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+#file-upload {
+  display: none;
+}
+
+.file-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
 /* Prediction Result Styles */
+.prediction-result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.prediction-result i {
+  font-size: 24px;
+}
+
 .spam {
   background-color: #ffebee;
   color: #c62828;
@@ -131,4 +229,52 @@ input[type="submit"]:hover {
   textarea {
     min-height: 120px;
   }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    justify-content: center;
+  }
+
+  .file-upload-label {
+    padding: 30px 20px;
+  }
+
+  .prediction-result {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/* Animation Styles */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loading {
+  animation: pulse 1.5s infinite;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none !important;
 }
